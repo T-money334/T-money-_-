@@ -516,11 +516,11 @@ Paul Levi is now an advisor.
 
 @add_thomas
 title: Thomas Taylor
-subtitle: Thomas Taylor is hellla gay
+subtitle: you know him you love him
 is-card: true
 card-image: img/portraits/ThomasTaylor.jpg
 view-if: thomas_advisor = 0 and n_advisors < 3
-on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5; left_dissent -= 4
+on-arrival: thomas_advisor = 1; n_advisors += 1; left_strength += 5; left_dissent -= 4
 go-to: advisor_menu
 tags: left_advisor
 
