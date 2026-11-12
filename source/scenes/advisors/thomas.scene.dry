@@ -2,7 +2,7 @@ title: Thomas Taylor
 is-pinned-card: true
 tags: advisor, left
 card-image: img/portraits/ThomasTaylor.jpg
-view-if: sender_advisor = 1
+view-if: thomas_advisor = 1
 new-page: true 
 
 = Toni Sender
@@ -42,18 +42,6 @@ Sender's message is popular among young women working in the service sector, and
 
 [? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
-@against_toleration
-title: Against toleration
-view-if: not constructive_vonc
-subtitle: Break our current toleration arrangement, and bring down the government via a no-confidence vote.
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?] [? if spd_toleration == 0 : The <span style="color: #c00000;">SPD</span> is not currently in toleration. ?]
-choose-if: advisor_action_timer == 0 and spd_toleration
-on-arrival: advisor_action_timer = 6; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time + 3; next_election_year = year if next_election_time >= time + 3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; spd_toleration_right = 0; left_strength += 8; pro_republic -= 4; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 8; left_dissent -= 5; dvp_relation -= 4; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; ddp_right += 1; dvp_right += 2; spd_break_toleration += 1
-go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar_coalition_prussia or in_grand_coalition_prussia or in_popular_front_prussia and ((center_right_coalition_prussia < 50 and dnvp_ideology == "Moderate") or dnvp_ideology == "Radical"); center_right_coalition_prussia if in_social_catholic_coalition_prussia or in_weimar_coalition_prussia or in_grand_coalition_prussia or in_popular_front_prussia and center_right_coalition_prussia >= 50 and dnvp_ideology == "Moderate"
-
-We have grown tired of the burdens of toleration, and have called a vote of no confidence in the current minority government.
-
-New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
 
 @new_prussia_election
 on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
@@ -72,11 +60,3 @@ The [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][?
 
 [? if z_leader != "Stegerwald": Adam Stegerwald?][? if z_leader == "Stegerwald": Heinrich Brüning?] of the [? if z_party_name != "CVP": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**CVP**</span>?] is selected to be the Minister-President of Prussia.
 
-@crisis
-title: Addressing the economic crisis
-view-if: nationalization_adopted == 0
-subtitle: Sender can help support a left-wing economic program.
-choose-if: advisor_action_timer <= 0 and black_thursday_seen == 1
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if black_thursday_seen == 0 : We are not currently in an economic crisis. ?]
-on-arrival: advisor_action_timer = 6;
-go-to: crisis_program.support_left
