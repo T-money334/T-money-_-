@@ -9,11 +9,20 @@ new-page: true
 
 Thomas is a Gay man who came from a bourgeois family, but was radicalized into <span style="color: #c00000;">socialism</span> after his experiences in the <span style="color: #009743;">**SubWay**</span>.
 
+- @campaign_pacifism
 - @left_unity
 - @organizing_women
 - @against_toleration
 - @crisis
 - @root: Return to main
+
+@campaign_pacifism
+title: Rally for pacifism.
+subtitle: Campaign for internationalism and against militarism.
+choose-if: advisor_action_timer = 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6;
+go-to: rally.pacifism
 
 @left_unity
 title: Left-Center Unity
