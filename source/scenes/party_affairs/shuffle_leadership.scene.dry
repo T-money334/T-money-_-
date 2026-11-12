@@ -209,6 +209,16 @@ go-to: rm_main_menu
 
 Levi has been removed as an advisor. The Leftist faction disapproves.
 
+
+@remove_thomas
+title: Remove Thomas
+view-if: thomas_advisor = 1
+tags: remove_advisor
+on-arrival: thomas_advisor = 0; left_dissent += 7; n_advisors -= 1
+go-to: rm_main_menu
+
+thomas has been removed as an advisor. The Leftist faction disapproves.
+
 @remove_sender
 title: Remove Sender
 view-if: sender_advisor = 1
@@ -503,6 +513,18 @@ go-to: advisor_menu
 tags: left_advisor
 
 Paul Levi is now an advisor.
+
+@add_thomas
+title: Thomas Taylor
+subtitle: Thomas Taylor is hellla gay
+is-card: true
+card-image: img/portraits/ThomasTaylor.jpg
+view-if: thomas_advisor = 0 and n_advisors < 3
+on-arrival: sender_advisor = 1; n_advisors += 1; left_strength += 5; left_dissent -= 4
+go-to: advisor_menu
+tags: left_advisor
+
+Thomas is now an advisor.
 
 @add_sender
 title: Toni Sender
