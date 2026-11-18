@@ -19,7 +19,7 @@ title: Rally for pacifism.
 subtitle: Campaign for internationalism and against militarism.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: advisor_action_timer = 6;
+on-arrival: advisor_action_timer = 6; new_middle_spd += 9*(1-dissent);
 go-to: rally.pacifism
 
 @left_unity
@@ -33,12 +33,12 @@ We have reduced dissent among the party's factions.
 
 @organizing_women
 title: Organizing women
-subtitle: Sender's strategies are aimed at young working women.
+subtitle: Thomas's strategies are aimed at young working women.
 choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
-on-arrival: womens_rights += 1; workers_spd += 3*(1-dissent); new_middle_spd += 5*(1-dissent); advisor_action_timer = 6
+on-arrival: womens_rights += 1; workers_spd += 3*(1-dissent); new_middle_spd += 9*(1-dissent); advisor_action_timer = 6
 
-Sender's message is popular among young women working in the service sector, and we have recruited many white-collar employees.
+thomas's message is popular among young women working in the service sector, and we have recruited many white-collar employees.
 
 [? if spd_r < 50 : Unfortunately, women still disproportionately support the bourgeois parties. ?]
 
